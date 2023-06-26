@@ -1,0 +1,25 @@
+{
+  "name": "anymine-vm-runtime",
+  "version": "0.3.0",
+  "description": "",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "watch": "tsc -w",
+    "start": "node dist/main",
+    "test": "jasmine dist/**/*.spec.js"
+  },
+  "keywords": [],
+  "author": "blmarket",
+  "license": "GPL-3.0-only",
+  "devDependencies": {
+    "@tsconfig/node18": "^1.0.1",
+    "@types/jasmine": "^4.3.1",
+    "@types/node": "^18.11.18",
+    "jasmine": "^4.5.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "anymine-interface": "workspace:^0.3.0"
+  }
+}

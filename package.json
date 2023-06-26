@@ -1,0 +1,13 @@
+{
+  "name": "anymine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "pnpm run -r --parallel watch",
+    "test": "pnpm run -r test"
+  },
+  "keywords": [],
+  "author": "blmarket",
+  "license": "GPL-3.0-only"
+}

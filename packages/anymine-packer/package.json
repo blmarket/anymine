@@ -1,0 +1,29 @@
+{
+  "name": "anymine-packer",
+  "version": "0.4.0",
+  "description": "",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "watch": "tsc -w",
+    "start": "node dist/main.js",
+    "test": "jasmine dist/*.spec.js"
+  },
+  "keywords": [],
+  "author": "Jeong, Heon",
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "@swc/core": "^1.3.24",
+    "fast-glob": "^3.2.12",
+    "rollup": "^3.9.0",
+    "rollup-plugin-swc3": "^0.8.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^1.0.1",
+    "@types/jasmine": "^4.3.1",
+    "@types/node": "^18.11.18",
+    "jasmine": "^4.5.0",
+    "source-map": "^0.7.4",
+    "typescript": "^4.9.4"
+  }
+}

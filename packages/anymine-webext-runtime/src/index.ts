@@ -1,0 +1,1 @@
+export { WebExtRuntime } from "./runtime";
