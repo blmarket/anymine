@@ -15,7 +15,7 @@ async function createExtension(dir: string): Promise<void> {
     "description": "test extension",
     "version": "0.1.0",
     "manifest_version": 2,
-    "permissions": ["storage"],
+    "permissions": ["storage", "cookies"],
     "background": {
       "scripts": ["bg.js"]
     }
