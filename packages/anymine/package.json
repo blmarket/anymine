@@ -12,17 +12,17 @@
   "author": "blmarket",
   "license": "GPL-3.0-only",
   "devDependencies": {
-    "@tsconfig/node18": "^1.0.1",
+    "@tsconfig/node18": "^1.0.3",
     "@types/chrome": "^0.0.206",
-    "@types/jasmine": "^4.3.1",
-    "@types/node": "^18.14.0",
+    "@types/jasmine": "^4.3.5",
+    "@types/node": "^18.16.19",
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "anymine-packer": "workspace:^0.4.0",
-    "anymine-vm-runtime": "workspace:^0.3.0",
-    "anymine-webext-runtime": "workspace:^0.4.0",
-    "jasmine-core": "^4.5.0",
+    "anymine-packer": "workspace:^",
+    "anymine-vm-runtime": "workspace:^",
+    "anymine-webext-runtime": "workspace:^",
+    "jasmine-core": "^4.6.0",
     "source-map": "^0.7.4"
   }
 }

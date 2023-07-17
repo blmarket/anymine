@@ -11,33 +11,33 @@ importers:
   packages/anymine:
     dependencies:
       anymine-packer:
-        specifier: workspace:^0.4.0
+        specifier: workspace:^
         version: link:../anymine-packer
       anymine-vm-runtime:
-        specifier: workspace:^0.3.0
+        specifier: workspace:^
         version: link:../anymine-vm-runtime
       anymine-webext-runtime:
-        specifier: workspace:^0.4.0
+        specifier: workspace:^
         version: link:../anymine-webext-runtime
       jasmine-core:
-        specifier: ^4.5.0
-        version: 4.5.0
+        specifier: ^4.6.0
+        version: 4.6.0
       source-map:
         specifier: ^0.7.4
         version: 0.7.4
     devDependencies:
       '@tsconfig/node18':
-        specifier: ^1.0.1
-        version: 1.0.1
+        specifier: ^1.0.3
+        version: 1.0.3
       '@types/chrome':
         specifier: ^0.0.206
         version: 0.0.206
       '@types/jasmine':
-        specifier: ^4.3.1
-        version: 4.3.1
+        specifier: ^4.3.5
+        version: 4.3.5
       '@types/node':
-        specifier: ^18.14.0
-        version: 18.14.0
+        specifier: ^18.16.19
+        version: 18.16.19
       typescript:
         specifier: ^4.9.5
         version: 4.9.5
@@ -305,7 +305,7 @@ packages:
     resolution: {integrity: sha512-fQnTFjghPB9S4UzbfublUB6KmsBkvvJeGXGaaoD5Qu+ZxrDUfgJnKN5egLSzDcGAH5YxQubDgbCdNwwUGewQHg==}
     dependencies:
       '@types/filesystem': 0.0.32
-      '@types/har-format': 1.2.10
+      '@types/har-format': 1.2.11
     dev: true
 
   /@types/filesystem@0.0.32:
@@ -318,8 +318,8 @@ packages:
     resolution: {integrity: sha512-BsPXH/irW0ht0Ji6iw/jJaK8Lj3FJemon2gvEqHKpCdDCeemHa+rI3WBGq5z7cDMZgoLjY40oninGxqk+8NzNQ==}
     dev: true
 
-  /@types/har-format@1.2.10:
-    resolution: {integrity: sha512-o0J30wqycjF5miWDKYKKzzOU1ZTLuA42HZ4HE7/zqTOc/jTLdQ5NhYWvsRQo45Nfi1KHoRdNhteSI4BAxTF1Pg==}
+  /@types/har-format@1.2.11:
+    resolution: {integrity: sha512-T232/TneofqK30AD1LRrrf8KnjLvzrjWDp7eWST5KoiSzrBfRsLrWDPk4STQPW4NZG6v2MltnduBVmakbZOBIQ==}
     dev: true
 
   /@types/jasmine@4.3.1:
@@ -334,8 +334,8 @@ packages:
     resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
     dev: true
 
-  /@types/node@18.14.0:
-    resolution: {integrity: sha512-5EWrvLmglK+imbCJY0+INViFWUHg1AHel1sq4ZVSfdcNqGy9Edv3UB9IIzzg+xPaUcAgZYcfVs2fBcwDeZzU0A==}
+  /@types/node@18.16.19:
+    resolution: {integrity: sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==}
     dev: true
 
   /@types/node@20.4.2:
@@ -511,19 +511,15 @@ packages:
       is-docker: 2.2.1
     dev: false
 
-  /jasmine-core@4.5.0:
-    resolution: {integrity: sha512-9PMzyvhtocxb3aXJVOPqBDswdgyAeSB81QnLop4npOpbqnheaTEwPc9ZloQeVswugPManznQBjD8kWDTjlnHuw==}
-
   /jasmine-core@4.6.0:
     resolution: {integrity: sha512-O236+gd0ZXS8YAjFx8xKaJ94/erqUliEkJTDedyE7iHvv4ZVqi+q+8acJxu05/WJDKm512EUNn809In37nWlAQ==}
-    dev: true
 
   /jasmine@4.5.0:
     resolution: {integrity: sha512-9olGRvNZyADIwYL9XBNBst5BTU/YaePzuddK+YRslc7rI9MdTIE4r3xaBKbv2GEmzYYUfMOdTR8/i6JfLZaxSQ==}
     hasBin: true
     dependencies:
       glob: 7.2.3
-      jasmine-core: 4.5.0
+      jasmine-core: 4.6.0
     dev: true
 
   /jasmine@4.6.0:
