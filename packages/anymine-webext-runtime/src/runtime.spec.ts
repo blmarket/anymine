@@ -1,6 +1,5 @@
 /// <reference types="jasmine" />
 
-import { Runtime } from "anymine-interface";
 import { WebExtRuntime } from "./runtime";
 
 describe('webext runtime', () => {
@@ -44,5 +43,11 @@ describe('webext runtime', () => {
     expect(await logs.next()).toEqual({ done: true, value: undefined });
     await runtime.evaluate(`console.log(2);`);
     expect(await logs.next()).toEqual({ done: true, value: undefined });
+  });
+
+  it('allows access to chrome.cookies API', async () => {
+    await runtime.evaluate(`console.log(chrome.cookies);`);
+    const tmp = await logs.next();
+    expect(tmp.value).toEqual(["[object Object]"]);
   });
 });
