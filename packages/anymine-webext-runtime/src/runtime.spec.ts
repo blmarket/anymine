@@ -50,4 +50,11 @@ describe('webext runtime', () => {
     const tmp = await logs.next();
     expect(tmp.value).toEqual(["[object Object]"]);
   });
+
+  it('allows read and write arbitrary cookies', async () => {
+    await runtime.evaluate(`chrome.cookies.set({ url: "https://example.com", name: "test", value: "test" });`);
+    await runtime.evaluate(`chrome.cookies.get({ url: "https://example.com", name: "test" }, (cookie) => console.log(cookie.value));`);
+    const tmp = await logs.next();
+    expect(tmp.value).toEqual(["test"]);
+  });
 });
