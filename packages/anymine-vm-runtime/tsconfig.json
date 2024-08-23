@@ -1,10 +1,15 @@
 {
-  "extends": "@tsconfig/node18/tsconfig.json",
+  "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
-    "lib": ["dom", "es2022"],
+    "lib": [
+      "dom",
+      "es2022"
+    ],
     "esModuleInterop": true,
     "declaration": true,
   },
-  "include": ["src"],
+  "include": [
+    "src"
+  ],
 }

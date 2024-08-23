@@ -1,6 +1,6 @@
 {
   "name": "anymine-webext-runtime",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -12,18 +12,18 @@
   "author": "Jeong, Heon",
   "license": "GPL-3.0-only",
   "devDependencies": {
-    "@tsconfig/node18": "^1.0.3",
-    "@types/chrome-remote-interface": "^0.31.10",
-    "@types/jasmine": "^4.3.5",
+    "@tsconfig/node22": "^22",
+    "@types/chrome-remote-interface": "^0.31.14",
+    "@types/jasmine": "^5",
     "@types/tmp": "^0.2.3",
-    "jasmine": "^4.6.0",
-    "typescript": "^4.9.5"
+    "jasmine": "^5",
+    "typescript": "^5"
   },
   "dependencies": {
     "anymine-interface": "workspace:^",
     "chrome-launcher": "^0.15.2",
-    "chrome-remote-interface": "^0.31.3",
+    "chrome-remote-interface": "^0.33.2",
     "devtools-protocol": "^0.0.927104",
-    "tmp": "^0.2.1"
+    "tmp": "^0.2.3"
   }
 }

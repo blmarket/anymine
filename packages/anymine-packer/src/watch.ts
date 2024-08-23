@@ -1,4 +1,4 @@
-import EventEmitter, { on } from "events";
+import EventEmitter, { on } from "node:events";
 import { RollupOptions, watch as rollupWatch } from "rollup";
 import fg from 'fast-glob';
 import { Item, Options, rollupOptions } from "./common";
@@ -35,7 +35,7 @@ async function* createBundleEvent(confs: RollupOptions[]): AsyncIterableIterator
     }
   });
 
-  yield* on(ret, 'event');
+  yield* (on(ret, 'event') as AsyncIterableIterator<any>);
 }
 
 export async function* watch(glob: string | string[], opts?: Options): AsyncIterableIterator<Item> {

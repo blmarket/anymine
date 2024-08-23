@@ -1,6 +1,6 @@
 {
   "name": "anymine-packer",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -19,11 +19,11 @@
     "rollup-plugin-swc3": "^0.8.0"
   },
   "devDependencies": {
-    "@tsconfig/node18": "^1.0.1",
-    "@types/jasmine": "^4.3.1",
-    "@types/node": "^18.11.18",
-    "jasmine": "^4.5.0",
+    "@tsconfig/node22": "^22",
+    "@types/jasmine": "^5",
+    "@types/node": "^22",
+    "jasmine": "^5",
     "source-map": "^0.7.4",
-    "typescript": "^4.9.4"
+    "typescript": "^5"
   }
 }

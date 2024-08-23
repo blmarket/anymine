@@ -29,6 +29,7 @@ export class SessionClient implements Pick<StableDomains, 'Runtime'> {
       addBinding: (params) => this.send('Runtime.addBinding', params),
       removeBinding: (params) => this.send('Runtime.removeBinding', params),
       terminateExecution: () => this.send('Runtime.terminateExecution'),
+      // getExceptionDetails: (params) => this.send('Runtime.getExceptionDetails', params),
       on: (event, listener) => this.client.on(event, (resp: any, sessionId) => {
         if (sessionId !== this.sessionId) return;
         listener(resp);
@@ -54,7 +55,7 @@ export class SessionClient implements Pick<StableDomains, 'Runtime'> {
   }
 
   // Helper functions
-  async compileAndRun(filePath: string): ReturnType<ProtocolProxyApi.RuntimeApi["runScript"]> {
+  async compileAndRun(filePath: string): Promise<Awaited<ReturnType<ProtocolProxyApi.RuntimeApi["runScript"]>>> {
     const script = await this.Runtime.compileScript({
       expression: fs.readFileSync(filePath, "utf8"),
       sourceURL: path.basename(filePath),
