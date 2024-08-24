@@ -5,6 +5,7 @@
 import { RollupOptions, SourceMap } from "rollup";
 import fg from 'fast-glob';
 import { swc, defineRollupSwcOption } from 'rollup-plugin-swc3';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export interface Options {
   target?: "es3" | "es5" | "es2015" | "es2016" | "es2017" | "es2018" | "es2019" | "es2020" | "es2021" | "es2022";
@@ -35,6 +36,7 @@ export function rollupOptions(entryFile: string | string[], opts: Options = {}):
         },
         sourceMaps: true,
       })),
+      nodeResolve(),
     ],
   };
 }
