@@ -1,0 +1,20 @@
+{
+  "name": "anymine-packer-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "CHROME_PATH=/usr/bin/chromium node main.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "private": "true",
+  "license": "GPL-3.0-only",
+  "devDependencies": {
+    "@apollo/client": "^3.11.4",
+    "@tsconfig/node22": "^22",
+    "@types/jasmine": "^5",
+    "anymine": "workspace:^0.5.0",
+    "jasmine-core": "^5"
+  }
+}
