@@ -3,13 +3,14 @@ import path from 'path';
 import { SourceMapConsumer } from 'source-map';
 
 import { bundle, watch } from "anymine-packer";
+import { WebExtMv3Runtime } from "anymine-webext-mv3-runtime";
 import { WebExtRuntime } from "anymine-webext-runtime";
 import { NodeVmRuntime } from "anymine-vm-runtime";
 
 interface Options {
   glob: string | string[];
   watch?: boolean;
-  runtime?: 'webext' | 'nodevm';
+  runtime?: 'webext' | 'webext-mv3' | 'nodevm';
 }
 
 const defaultOptions: Omit<Options, "glob"> = {
@@ -31,9 +32,34 @@ interface JasmineTestSpec {
   status: 'passed' | 'failed' | 'pending';
 }
 
+const JASMINE_BOOTSTRAP = `
+  (() => {
+    const jasmineRequire = getJasmineRequireObj();
+    const jasmine = jasmineRequire.core(jasmineRequire);
+    const global = jasmine.getGlobal();
+
+    global.jasmine = jasmine;
+    global.jsApiReporter = new jasmine.JsApiReporter({
+      timer: new jasmine.Timer(),
+    });
+
+    const env = jasmine.getEnv();
+    const jasmineInterface = jasmineRequire.interface(jasmine, env);
+    for (const property in jasmineInterface) {
+      global[property] = jasmineInterface[property];
+    }
+
+    return '';
+  })();
+`;
+
 export async function* test(options: Options): AsyncIterableIterator<JasmineTestSpec[]> {
   const opts = { ...defaultOptions, ...options };
-  const runtimePromise = opts.runtime === 'webext' ? WebExtRuntime.create() : Promise.resolve(new NodeVmRuntime());
+  const runtimePromise = opts.runtime === 'webext'
+    ? WebExtRuntime.create()
+    : opts.runtime === 'webext-mv3'
+      ? WebExtMv3Runtime.create()
+      : Promise.resolve(new NodeVmRuntime());
   const testCodeGen = opts.watch ? watch(opts.glob) : bundle(opts.glob);
   const runtime = await runtimePromise;
   const regex = /^( +at.+)\((.*):([0-9]+):([0-9]+)/;
@@ -52,7 +78,6 @@ export async function* test(options: Options): AsyncIterableIterator<JasmineTest
     };
 
     await compileAndRun("./node_modules/jasmine-core/lib/jasmine-core/jasmine.js");
-    await compileAndRun("./node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js");
 
     for await (const [...args] of testCodeGen) {
       if (args[0] === "end") {
@@ -60,7 +85,7 @@ export async function* test(options: Options): AsyncIterableIterator<JasmineTest
         yield []; // Use empty array as an 'end' indicator?
         continue;
       }
-      await compileAndRun("./node_modules/jasmine-core/lib/jasmine-core/boot0.js");
+      await runtime.evaluate(JASMINE_BOOTSTRAP);
       await runtime.evaluate(`
         jasmine.getEnv().addReporter(jsApiReporter);
         jasmine.getEnv().configure({"stopSpecOnExpectationFailure":false,"stopOnSpecFailure":false,"random":true});

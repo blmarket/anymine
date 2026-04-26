@@ -13,9 +13,10 @@ available in other environments.
 Anymine tries to solve this problem by defining a minimal interface to execute
 arbitrary javascript code, and inject unit test environment using the interface,
 and implemented the so-called interface in javascript vm environment and Chrome
-background script via Chrome devtools protocol(CDP). The tool can be useful when
-running unit tests in Chrome extension, which allows access to all chrome
-specific extension API.
+extension backgrounds via Chrome devtools protocol(CDP). The tool can be useful
+when running unit tests in Chrome extensions, which allows access to all chrome
+specific extension API, including both Manifest V2 background pages and Manifest
+V3 service workers.
 
 ## Usage
 

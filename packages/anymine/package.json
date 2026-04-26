@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "anymine-packer": "workspace:^",
+    "anymine-webext-mv3-runtime": "workspace:^",
     "anymine-vm-runtime": "workspace:^",
     "anymine-webext-runtime": "workspace:^",
     "jasmine-core": "^5",
